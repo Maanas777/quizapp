@@ -10,24 +10,24 @@ const App = () => {
   const showResults = useSelector((state) => state.quiz.showResults);
   const score = useSelector((state) => state.quiz.score);
   const questions = useSelector((state) => state.quiz.questions);
-  const [quizStarted, setQuizStarted] = useState(false); // Track if the quiz has started
-  const [timeLeft, setTimeLeft] = useState(5); // Timer for results page
+  const [quizStarted, setQuizStarted] = useState(false); 
+  const [timeLeft, setTimeLeft] = useState(5); 
 
   const handleStartQuiz = () => {
-    setQuizStarted(true); // Set quizStarted to true when the user starts the quiz
+    setQuizStarted(true); 
   };
 
   const handleNextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
       dispatch(nextQuestion());
-      setTimeLeft(5); // Reset timer for the next question
+      setTimeLeft(5);
     }
   };
 
   const handleResetQuiz = () => {
     dispatch(resetQuiz());
-    setQuizStarted(false); // Reset quizStarted when quiz is reset
-    setTimeLeft(5); // Reset timer when quiz is reset
+    setQuizStarted(false); 
+    setTimeLeft(5); 
   };
 
   useEffect(() => {
